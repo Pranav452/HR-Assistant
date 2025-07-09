@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  hr-assistant-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./app:/app/app
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - CHROMA_PERSIST_DIRECTORY=/app/data/vector_db
+      - UPLOAD_DIRECTORY=/app/data/documents
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
