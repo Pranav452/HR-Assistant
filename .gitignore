@@ -2,6 +2,10 @@
 
 # dependencies
 /node_modules
+/backend/venv/
+__pycache__/
+*.py[cod]
+*$py.class
 
 # next.js
 /.next/
@@ -25,3 +29,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Database and data files
+/backend/data/vector_db/
+/backend/data/documents/
+*.sqlite3
+*.bin
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
